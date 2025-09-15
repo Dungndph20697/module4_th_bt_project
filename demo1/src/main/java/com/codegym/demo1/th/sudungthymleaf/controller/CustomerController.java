@@ -1,8 +1,8 @@
-package com.codegym.demo1.controller;
+package com.codegym.demo1.th.sudungthymleaf.controller;
 
-import com.codegym.demo1.model.Customer;
-import com.codegym.demo1.service.CustomerServiceImpl;
-import com.codegym.demo1.service.ICustomerService;
+import com.codegym.demo1.th.sudungthymleaf.model.Customer;
+import com.codegym.demo1.th.sudungthymleaf.service.CustomerServiceImpl;
+import com.codegym.demo1.th.sudungthymleaf.service.ICustomerService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -20,13 +20,13 @@ public class CustomerController {
         List<Customer> customerList = customerService.findAll();
         model.addAttribute("customers", customerList);
         model.addAttribute("success", "");
-        return "/index";
+        return "/th/sudungthymleaf/index";
     }
 
     @GetMapping("/create")
     public String create(Model model){
         model.addAttribute("customer", new Customer());
-        return "/create";
+        return "/th/sudungthymleaf/create";
     }
 
     @PostMapping("/save")
@@ -40,7 +40,7 @@ public class CustomerController {
     @GetMapping("/{id}/edit")
     public String update(@PathVariable(value = "id") int id, Model model) {
         model.addAttribute("customer", customerService.findById(id));
-        return "/update";
+        return "/th/sudungthymleaf/update";
 
     }
 
@@ -54,7 +54,7 @@ public class CustomerController {
     @GetMapping("/{id}/delete")
     public String delete(@PathVariable(value = "id") int id, Model model) {
         model.addAttribute("customer", customerService.findById(id));
-        return "/delete";
+        return "/th/sudungthymleaf/delete";
     }
 
     @PostMapping("/delete")
@@ -67,6 +67,6 @@ public class CustomerController {
     @GetMapping("/{id}/view")
     public String view(@PathVariable(value = "id") int id, Model model) {
         model.addAttribute("customer", customerService.findById(id));
-        return "/view";
+        return "/th/sudungthymleaf/view";
     }
 }

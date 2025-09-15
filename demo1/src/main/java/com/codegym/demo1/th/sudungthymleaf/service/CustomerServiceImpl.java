@@ -1,12 +1,14 @@
-package com.codegym.demo1.service;
+package com.codegym.demo1.th.sudungthymleaf.service;
 
-import com.codegym.demo1.model.Customer;
+import com.codegym.demo1.th.sudungthymleaf.model.Customer;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+@Service
 public class CustomerServiceImpl implements ICustomerService {
     private static final Map<Integer, Customer> customers;
 

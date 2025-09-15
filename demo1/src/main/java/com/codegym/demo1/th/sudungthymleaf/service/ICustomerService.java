@@ -1,6 +1,6 @@
-package com.codegym.demo1.service;
+package com.codegym.demo1.th.sudungthymleaf.service;
 
-import com.codegym.demo1.model.Customer;
+import com.codegym.demo1.th.sudungthymleaf.model.Customer;
 
 import java.util.List;
 
