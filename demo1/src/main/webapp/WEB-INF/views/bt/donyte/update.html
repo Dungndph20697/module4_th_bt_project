@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Tờ khai y tế</title>
+    <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+    >
+</head>
+<body class="container my-4">
+
+<h2 class="text-center mb-4">TỜ KHAI Y TẾ</h2>
+
+<form th:action="@{/bt/formyte/update}" th:object="${formYTe}" method="post" class="row g-3">
+    <input type="hidden" th:field="*{id}"/>
+    <!-- Họ tên -->
+    <div class="col-md-6">
+        <label class="form-label">Họ tên (IN HOA)</label>
+        <input type="text" class="form-control" th:field="*{hoTen}" required>
+    </div>
+
+    <!-- Năm sinh -->
+    <div class="col-md-3">
+        <label class="form-label">Năm sinh</label>
+<!--        <input type="number" class="form-control" th:field="*{namSinh}" required>-->
+        <select class="form-select" th:field="*{namSinh}" >
+            <option th:each="ns : ${listNamSinh}" th:value="${ns}" th:text="${ns}" th:selected="${ns == namSinh}"></option>
+        </select>
+    </div>
+
+    <!-- Giới tính -->
+    <div class="col-md-3">
+        <label class="form-label">Giới tính</label>
+        <select class="form-select" th:field="*{gioiTinh}">
+            <option th:value="true">Nam</option>
+            <option th:value="false">Nữ</option>
+        </select>
+    </div>
+
+    <!-- Quốc tịch -->
+    <div class="col-md-4">
+        <label class="form-label">Quốc tịch</label>
+        <select class="form-select" th:field="*{quocTich}">
+            <option value="Việt Nam">Việt Nam</option>
+            <option value="Trung Quốc">Trung Quốc</option>
+        </select>
+    </div>
+
+    <!-- CCCD -->
+    <div class="col-md-4">
+        <label class="form-label">Số CCCD/CMND</label>
+        <input type="text" class="form-control" th:field="*{cccd}">
+    </div>
+
+    <!-- Phương tiện -->
+    <div class="col-md-12">
+        <label class="form-label fw-bold">
+            Thông tin đi lại <span class="text-danger">(＊)</span>
+        </label>
+        <div class="d-flex flex-wrap gap-3">
+            <div class="form-check">
+                <input class="form-check-input" th:field="*{phuongTien}" type="radio" name="phuongTien" id="tauBay" value="Tàu bay">
+                <label class="form-check-label"  for="tauBay">Tàu bay</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" th:field="*{phuongTien}" type="radio" name="phuongTien" id="tauThuyen" value="Tàu thuyền">
+                <label class="form-check-label" for="tauThuyen">Tàu thuyền</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" th:field="*{phuongTien}" type="radio" name="phuongTien" id="oto" value="Ô tô">
+                <label class="form-check-label" for="oto">Ô tô</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" th:field="*{phuongTien}" type="radio" name="phuongTien" id="khac" value="Khác">
+                <label class="form-check-label" for="khac">Khác (Ghi rõ)</label>
+            </div>
+        </div>
+    </div>
+
+    <!-- Số hiệu - Số ghế -->
+    <div class="col-md-4">
+        <label class="form-label">Số hiệu phương tiện</label>
+        <input type="text" class="form-control" th:field="*{soHieuPhuongTien}">
+    </div>
+    <div class="col-md-2">
+        <label class="form-label">Số ghế</label>
+        <input type="number" class="form-control" th:field="*{soGhe}">
+    </div>
+
+    <!-- Thời gian khởi hành / kết thúc -->
+    <div class="col-12">
+        <label class="form-label">Ngày khởi hành</label>
+        <div class="row g-2">
+            <div class="col">
+<!--                <input type="number" class="form-control" placeholder="Ngày" th:field="*{ngayKhoiHanh}">-->
+                <select class="form-select" th:field="*{ngayKhoiHanh}" >
+                    <option th:each="n : ${ngay}" th:value="${n}" th:text="${n}" th:selected="${n == ngayKhoiHanh}"></option>
+                </select>
+            </div>
+            <div class="col">
+<!--                <input type="number" class="form-control" placeholder="Tháng" th:field="*{thangKhoiHanh}">-->
+                <select class="form-select" th:field="*{thangKhoiHanh}" >
+                    <option th:each="n : ${thang}" th:value="${n}" th:text="${n}" th:selected="${n == thangKhoiHanh}"></option>
+                </select>
+            </div>
+            <div class="col">
+<!--                <input type="number" class="form-control" placeholder="Năm" th:field="*{namKhoiHanh}">-->
+                <select class="form-select" th:field="*{namKhoiHanh}" >
+                    <option th:each="n : ${nam}" th:value="${n}" th:text="${n}" th:selected="${n == namKhoiHanh}"></option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-12">
+        <label class="form-label">Ngày kết thúc</label>
+        <div class="row g-2">
+            <div class="col">
+<!--                <input type="number" class="form-control" placeholder="Ngày" th:field="*{ngayKetThuc}">-->
+                <select class="form-select" th:field="*{ngayKetThuc}" >
+                    <option th:each="n : ${ngay}" th:value="${n}" th:text="${n}" th:selected="${n == ngayKetThuc}"></option>
+                </select>
+            </div>
+            <div class="col">
+<!--                <input type="number" class="form-control" placeholder="Tháng" th:field="*{thangKetThuc}">-->
+                <select class="form-select" th:field="*{thangKetThuc}" >
+                    <option th:each="n : ${thang}" th:value="${n}" th:text="${n}" th:selected="${n == thangKetThuc}"></option>
+                </select>
+            </div>
+            <div class="col">
+<!--                <input type="number" class="form-control" placeholder="Năm" th:field="*{namKetThuc}"></div>-->
+                <select class="form-select" th:field="*{namKetThuc}" >
+                    <option th:each="n : ${nam}" th:value="${n}" th:text="${n}" th:selected="${n == namKetThuc}"></option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lịch sử di chuyển -->
+    <div class="col-12">
+        <label class="form-label">Trong 14 ngày qua, đã đến tỉnh/thành nào?</label>
+        <textarea class="form-control" th:field="*{lichSuDiChuyen}"></textarea>
+    </div>
+
+    <!-- Địa chỉ liên lạc -->
+    <div class="col-md-4">
+        <label class="form-label">Tỉnh/Thành</label>
+        <input type="text" class="form-control" th:field="*{tinhThanh}">
+    </div>
+    <div class="col-md-4">
+        <label class="form-label">Quận/Huyện</label>
+        <input type="text" class="form-control" th:field="*{quanHuyen}">
+    </div>
+    <div class="col-md-4">
+        <label class="form-label">Phường/Xã</label>
+        <input type="text" class="form-control" th:field="*{phuongXa}">
+    </div>
+
+    <div class="col-12">
+        <label class="form-label">Địa chỉ nơi ở</label>
+        <input type="text" class="form-control" th:field="*{diaChi}">
+    </div>
+
+    <div class="col-md-6">
+        <label class="form-label">Điện thoại</label>
+        <input type="text" class="form-control" th:field="*{dienThoai}">
+    </div>
+    <div class="col-md-6">
+        <label class="form-label">Email</label>
+        <input type="email" class="form-control" th:field="*{email}">
+    </div>
+
+    <!-- Triệu chứng -->
+    <div class="col-12">
+        <label class="form-label">Trong 14 ngày qua, có triệu chứng:</label>
+        <table class="table table-bordered align-middle text-center">
+            <thead class="table-light">
+            <tr>
+                <th>Triệu chứng</th>
+                <th>Có</th>
+                <th>Không</th>
+                <th>Triệu chứng</th>
+                <th>Có</th>
+                <th>Không</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>Sốt <span class="text-danger">(＊)</span></td>
+                <td><input type="radio" th:field="*{trieuChung.sot}" name="sot" value="true"></td>
+                <td><input type="radio" th:field="*{trieuChung.sot}" name="sot" value="false"></td>
+
+                <td>Nôn/buồn nôn <span class="text-danger">(＊)</span></td>
+                <td><input type="radio" th:field="*{trieuChung.non}" name="non" value="true"></td>
+                <td><input type="radio" th:field="*{trieuChung.non}" name="non" value="false"></td>
+            </tr>
+
+            <tr>
+                <td>Ho <span class="text-danger">(＊)</span></td>
+                <td><input type="radio" th:field="*{trieuChung.ho}" name="ho" value="true"></td>
+                <td><input type="radio" th:field="*{trieuChung.ho}" name="ho" value="false"></td>
+
+                <td>Tiêu chảy <span class="text-danger">(＊)</span></td>
+                <td><input type="radio" th:field="*{trieuChung.tieuChay}" name="tieuchay" value="true"></td>
+                <td><input type="radio" th:field="*{trieuChung.tieuChay}" name="tieuchay" value="false"></td>
+            </tr>
+
+            <tr>
+                <td>Khó thở <span class="text-danger">(＊)</span></td>
+                <td><input type="radio" th:field="*{trieuChung.khoTho}" name="khotho" value="true"></td>
+                <td><input type="radio" th:field="*{trieuChung.khoTho}" name="khotho" value="false"></td>
+
+                <td>Xuất huyết ngoài da <span class="text-danger">(＊)</span></td>
+                <td><input type="radio" th:field="*{trieuChung.xuatHuyetNgoaiDa}" name="xuathuyet" value="true"></td>
+                <td><input type="radio" th:field="*{trieuChung.xuatHuyetNgoaiDa}" name="xuathuyet" value="false"></td>
+            </tr>
+
+            <tr>
+                <td>Đau họng <span class="text-danger">(＊)</span></td>
+                <td><input type="radio" th:field="*{trieuChung.dauHong}" name="dauhong" value="true"></td>
+                <td><input type="radio" th:field="*{trieuChung.dauHong}" name="dauhong" value="false"></td>
+
+                <td>Nổi ban ngoài da <span class="text-danger">(＊)</span></td>
+                <td><input type="radio" th:field="*{trieuChung.noiBanNgoaiDa}" name="noiban" value="true"></td>
+                <td><input type="radio" th:field="*{trieuChung.noiBanNgoaiDa}" name="noiban" value="false"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Lịch sử tiếp xúc -->
+    <div class="col-12">
+        <label class="form-label">Lịch sử phơi nhiễm:</label>
+        <table class="table table-bordered align-middle">
+            <thead class="table-light text-center">
+            <tr>
+                <th>Yếu tố tiếp xúc</th>
+                <th>Có</th>
+                <th>Không</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>
+                    Đến trang trại chăn nuôi / chợ buôn bán động vật sống /
+                    cơ sở giết mổ động vật / tiếp xúc động vật
+                    <span class="text-danger">(＊)</span>
+                </td>
+                <td class="text-center"><input type="radio" th:field="*{lichSuTiepXuc.tiepXucVoiDongVat}" name="dongvat" value="true"></td>
+                <td class="text-center"><input type="radio" th:field="*{lichSuTiepXuc.tiepXucVoiDongVat}" name="dongvat" value="false"></td>
+            </tr>
+            <tr>
+                <td>
+                    Tiếp xúc gần (&lt;2m) với người mắc bệnh viêm đường hô hấp do nCoV
+                    <span class="text-danger">(＊)</span>
+                </td>
+                <td class="text-center"><input type="radio" th:field="*{lichSuTiepXuc.tiepXucVoiNguoiBenh}" name="tiepxuc" value="true"></td>
+                <td class="text-center"><input type="radio" th:field="*{lichSuTiepXuc.tiepXucVoiNguoiBenh}" name="tiepxuc" value="false"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="col-12 text-center">
+        <button type="submit" class="btn btn-success px-4">GỬI TỜ KHAI</button>
+    </div>
+
+</form>
+</body>
+</html>

@@ -3,6 +3,7 @@
   <component name="WebContextManager">
     <option name="state">
       <map>
+        <entry key="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/bt/donyte/create.html" value="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/bt/donyte" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/bt/luutruhomthudientu/list.html" value="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/bt/luutruhomthudientu" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/bt/sudungthymleaf/index.html" value="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/bt/sudungthymleaf" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/bt/sudungthymleaf/view.html" value="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/bt/sudungthymleaf" />

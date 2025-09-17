@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Chi tiết Tờ khai y tế</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container mt-4">
+    <h2 class="text-center">Chi tiết Tờ khai y tế</h2>
+    <hr>
+
+    <!-- Thông tin cá nhân -->
+    <div class="row mb-3">
+        <div class="col-md-6">
+            <label><strong>Họ tên:</strong></label>
+            <span th:text="${formYTe.hoTen}"></span>
+        </div>
+        <div class="col-md-3">
+            <label><strong>Năm sinh:</strong></label>
+            <span th:text="${formYTe.namSinh}"></span>
+        </div>
+        <div class="col-md-3">
+            <label><strong>Giới tính:</strong></label>
+            <span th:text="${formYTe.gioiTinh} ? 'Nam' : 'Nữ'"></span>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <div class="col-md-6">
+            <label><strong>Quốc tịch:</strong></label>
+            <span th:text="${formYTe.quocTich}"></span>
+        </div>
+        <div class="col-md-6">
+            <label><strong>CCCD/CMND:</strong></label>
+            <span th:text="${formYTe.cccd}"></span>
+        </div>
+    </div>
+
+    <!-- Thông tin đi lại -->
+    <h5 class="mt-4">Thông tin đi lại</h5>
+    <div class="row mb-3">
+        <div class="col-md-4">
+            <label><strong>Phương tiện:</strong></label>
+            <span th:text="${formYTe.phuongTien}"></span>
+        </div>
+        <div class="col-md-4">
+            <label><strong>Số hiệu:</strong></label>
+            <span th:text="${formYTe.soHieuPhuongTien}"></span>
+        </div>
+        <div class="col-md-4">
+            <label><strong>Số ghế:</strong></label>
+            <span th:text="${formYTe.soGhe}"></span>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <div class="col-md-6">
+            <label><strong>Ngày khởi hành:</strong></label>
+            <span th:text="${formYTe.ngayKhoiHanh + '/' + formYTe.thangKhoiHanh + '/' + formYTe.namKhoiHanh}"></span>
+        </div>
+        <div class="col-md-6">
+            <label><strong>Ngày kết thúc:</strong></label>
+            <span th:text="${formYTe.ngayKetThuc + '/' + formYTe.thangKetThuc + '/' + formYTe.namKetThuc}"></span>
+        </div>
+    </div>
+
+    <!-- Địa chỉ cư trú -->
+    <h5 class="mt-4">Địa chỉ cư trú</h5>
+    <div class="row mb-3">
+        <div class="col-md-4">
+            <label><strong>Tỉnh/Thành:</strong></label>
+            <span th:text="${formYTe.tinhThanh}"></span>
+        </div>
+        <div class="col-md-4">
+            <label><strong>Quận/Huyện:</strong></label>
+            <span th:text="${formYTe.quanHuyen}"></span>
+        </div>
+        <div class="col-md-4">
+            <label><strong>Phường/Xã:</strong></label>
+            <span th:text="${formYTe.phuongXa}"></span>
+        </div>
+    </div>
+    <div class="mb-3">
+        <label><strong>Địa chỉ:</strong></label>
+        <span th:text="${formYTe.diaChi}"></span>
+    </div>
+
+    <div class="row mb-3">
+        <div class="col-md-6">
+            <label><strong>Điện thoại:</strong></label>
+            <span th:text="${formYTe.dienThoai}"></span>
+        </div>
+        <div class="col-md-6">
+            <label><strong>Email:</strong></label>
+            <span th:text="${formYTe.email}"></span>
+        </div>
+    </div>
+
+    <!-- Triệu chứng -->
+    <h5 class="mt-4">Triệu chứng (14 ngày qua)</h5>
+    <table class="table table-bordered">
+        <thead class="table-light">
+        <tr>
+            <th>Triệu chứng</th>
+            <th>Có</th>
+            <th>Không</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>Sốt</td>
+            <td th:text="${formYTe.trieuChung.sot} ? '✔' : ''"></td>
+            <td th:text="${!formYTe.trieuChung.sot} ? '✔' : ''"></td>
+        </tr>
+        <tr>
+            <td>Ho</td>
+            <td th:text="${formYTe.trieuChung.ho} ? '✔' : ''"></td>
+            <td th:text="${!formYTe.trieuChung.ho} ? '✔' : ''"></td>
+        </tr>
+        <tr>
+            <td>Khó thở</td>
+            <td th:text="${formYTe.trieuChung.khoTho} ? '✔' : ''"></td>
+            <td th:text="${!formYTe.trieuChung.khoTho} ? '✔' : ''"></td>
+        </tr>
+        <tr>
+            <td>Đau họng</td>
+            <td th:text="${formYTe.trieuChung.dauHong} ? '✔' : ''"></td>
+            <td th:text="${!formYTe.trieuChung.dauHong} ? '✔' : ''"></td>
+        </tr>
+        <tr>
+            <td>Buồn nôn</td>
+            <td th:text="${formYTe.trieuChung.non} ? '✔' : ''"></td>
+            <td th:text="${!formYTe.trieuChung.non} ? '✔' : ''"></td>
+        </tr>
+        <tr>
+            <td>Tiêu chảy</td>
+            <td th:text="${formYTe.trieuChung.tieuChay} ? '✔' : ''"></td>
+            <td th:text="${!formYTe.trieuChung.tieuChay} ? '✔' : ''"></td>
+        </tr>
+        <tr>
+            <td>Xuất huyết ngoài da</td>
+            <td th:text="${formYTe.trieuChung.xuatHuyetNgoaiDa} ? '✔' : ''"></td>
+            <td th:text="${!formYTe.trieuChung.xuatHuyetNgoaiDa} ? '✔' : ''"></td>
+        </tr>
+        <tr>
+            <td>Nổi ban ngoài da</td>
+            <td th:text="${formYTe.trieuChung.noiBanNgoaiDa} ? '✔' : ''"></td>
+            <td th:text="${!formYTe.trieuChung.noiBanNgoaiDa} ? '✔' : ''"></td>
+        </tr>
+        </tbody>
+    </table>
+
+    <!-- Lịch sử tiếp xúc -->
+    <h5 class="mt-4">Lịch sử tiếp xúc</h5>
+    <table class="table table-bordered">
+        <thead class="table-light">
+        <tr>
+            <th>Yếu tố tiếp xúc</th>
+            <th>Có</th>
+            <th>Không</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>Tiếp xúc với người bệnh</td>
+            <td th:text="${formYTe.lichSuTiepXuc.tiepXucVoiNguoiBenh} ? '✔' : ''"></td>
+            <td th:text="${!formYTe.lichSuTiepXuc.tiepXucVoiNguoiBenh} ? '✔' : ''"></td>
+        </tr>
+        <tr>
+            <td>Tiếp xúc với động vật</td>
+            <td th:text="${formYTe.lichSuTiepXuc.tiepXucVoiDongVat} ? '✔' : ''"></td>
+            <td th:text="${!formYTe.lichSuTiepXuc.tiepXucVoiDongVat} ? '✔' : ''"></td>
+        </tr>
+        </tbody>
+    </table>
+
+    <div class="text-center mt-4">
+        <a th:href="@{/bt/formyte}" class="btn btn-secondary">Quay lại</a>
+    </div>
+</div>
+</body>
+</html>
