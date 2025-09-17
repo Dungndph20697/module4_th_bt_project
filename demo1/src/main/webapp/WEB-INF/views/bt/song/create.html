@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Upload Form</title>
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <style>
+        body {
+            padding: 40px;
+        }
+        .upload-form {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+
+<div class="upload-form">
+    <form th:action="@{/bt/song/save}" th:object="${song}"
+          method="post" enctype="multipart/form-data"
+          class="border p-4 rounded">
+
+        <!-- ID -->
+<!--        <div class="mb-3">-->
+<!--            <label for="id" class="form-label">ID</label>-->
+<!--            <input type="number" id="id" class="form-control"-->
+<!--                   th:field="*{id}" placeholder="Enter ID">-->
+<!--        </div>-->
+
+        <!-- Name -->
+        <div class="mb-3">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" id="name" class="form-control"
+                   th:field="*{name}" placeholder="Enter name">
+        </div>
+
+        <!-- Artist -->
+        <div class="mb-3">
+            <label for="artist" class="form-label">Artist</label>
+            <input type="text" id="artist" class="form-control"
+                   th:field="*{artist}" placeholder="Enter artist">
+        </div>
+
+        <!-- File -->
+        <div class="mb-3">
+            <label for="file" class="form-label">File</label>
+            <input type="file" id="file" class="form-control"
+                   th:field="*{file}">
+        </div>
+
+        <!-- Buttons -->
+        <button type="submit" class="btn btn-primary">Save</button>
+        <a th:href="@{/}" class="btn btn-outline-secondary ms-2">Cancel</a>
+    </form>
+</div>
+
+</body>
+</html>
