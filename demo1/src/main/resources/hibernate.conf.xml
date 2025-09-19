@@ -12,5 +12,6 @@
         <property name="show_sql">true</property>
         <property name="hbm2ddl.auto">update</property>
         <mapping class="com.codegym.demo1.th.quanglydanhsachkhachhang.model.Customer"/>
+        <mapping class="com.codegym.demo1.bt.ungdungnghenhac.model.Song"/>
     </session-factory>
 </hibernate-configuration>
