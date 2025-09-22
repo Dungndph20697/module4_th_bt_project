@@ -25,7 +25,7 @@
     <input type="text" th:field="*{genre}"><br><br>
 
     <label>Link:</label><br>
-    <input type="url" th:field="*{link}"><br><br>
+    <input type="file" th:field="*{link}" accept=".mp3,.mp4" required><br><br>
 
     <button type="submit">Add Song</button>
   </form>

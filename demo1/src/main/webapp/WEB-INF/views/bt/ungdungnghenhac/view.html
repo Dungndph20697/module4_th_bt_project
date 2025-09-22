@@ -25,7 +25,10 @@
   </div>
   <div class="cus-detail">
     <label>Link:</label>
-    <label th:text="${song.link}"></label>
+    <audio controls>
+      <source th:src="@{'/image/' + ${songlink}}" type="audio/mpeg">
+      Trình duyệt của bạn không hỗ trợ phát nhạc.
+    </audio>
   </div>
 </div>
 <footer th:replace="/layout :: footer"></footer>
