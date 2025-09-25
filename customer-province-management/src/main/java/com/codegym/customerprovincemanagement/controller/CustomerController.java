@@ -89,6 +89,7 @@ public class CustomerController {
         redirect.addFlashAttribute("message", "Delete customer successfully");
         return "redirect:/customers";
     }
+
     @GetMapping("/search")
     public ModelAndView listCustomersSearch(@RequestParam("search") Optional<String> search, Pageable pageable){
         Page<Customer> customers;

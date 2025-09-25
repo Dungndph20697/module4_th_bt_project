@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head th:replace="/layout :: head">
+    <title>List Blog</title>
+</head>
+<body>
+<h3>Category</h3>
+<p>
+    <a th:href="@{/blog/create}">
+        Add new blog
+    </a>
+</p>
+<p>
+    <a th:href="@{/category}">
+        Category
+    </a>
+</p>
+<div class="notify">
+    <div th:if="${message}">
+        <span th:text="${message}"></span>
+    </div>
+</div>
+<div>
+    <div class="row">
+        <div class="col-md-6">
+            <form th:action="@{/blog/search}" method="get">
+                <input class="input" type="text" name="search" placeholder="Search" style="width:500px;">
+                <button type="submit" class="btn btn-primary">Search</button>
+            </form>
+        </div>
+        <div class="col-md-6">
+            <label for="title">Category</label>
+            <select class="form-select form-select-lg mb-3" aria-label="Large select example" th:field="*{category}" style="width:500px;">
+                <option th:each="c, cStatus : ${category}" th:value="${c.id}" th:text="${c.name}"></option>
+            </select>
+        </div>
+    </div>
+
+</div>
+<table id="customers">
+    <thead>
+    <tr>
+        <th>STT</th>
+        <th>Title</th>
+        <th>CreatedDate</th>
+        <th>UpdateDate</th>
+        <th>update</th>
+        <th>delete</th>
+        <th>view</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="b, bStatus : ${blogs}">
+        <td th:text="${bStatus.count}"></td>
+        <td><a th:text="${b.title}"></a></td>
+        <td><a th:text="${#temporals.format(b.createdDate, 'dd/MM/yyyy HH:mm:ss')}"></a></td>
+        <td><a th:text="${#temporals.format(b.updatedDate, 'dd/MM/yyyy HH:mm:ss')}"></a></td>
+        <td><a th:href="@{/blog/update/{id}(id=${b.getId()})}">update</a></td>
+        <td><a th:href="@{/blog/delete/{id}(id=${b.getId()})}">delete</a></td>
+        <td><a th:href="@{/blog/detail/{id}(id=${b.getId()})}">view</a></td>
+    </tr>
+    </tbody>
+</table>
+<div style="text-align: center">
+    <a class="btn btn-primary" th:if="${blogs.hasPrevious()}"
+       th:href="@{/blog(page=${blogs.number - 1})}">Previous</a>
+
+    <span th:text="${blogs.number + 1}"></span> |
+    <span th:text="${blogs.totalPages}"></span>
+
+    <a class="btn btn-primary" th:if="${blogs.hasNext()}"
+       th:href="@{/blog(page=${blogs.number + 1})}">Next</a>
+</div>
+<footer th:replace="/layout :: footer"></footer>
+</body>
+</html>
