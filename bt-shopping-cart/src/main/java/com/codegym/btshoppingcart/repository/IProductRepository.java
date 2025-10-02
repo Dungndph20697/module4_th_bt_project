@@ -1,0 +1,7 @@
+package com.codegym.btshoppingcart.repository;
+
+import com.codegym.btshoppingcart.model.Product;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface IProductRepository extends JpaRepository<Product, Long> {
+}
