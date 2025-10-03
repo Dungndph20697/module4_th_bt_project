@@ -21,10 +21,6 @@ public class Blog {
     private String title;
     private String content;
     private String author;
-    @Column(name = "createdAt")
-    private LocalDateTime createdAt;
-    @Column(name = "updatedAt")
-    private LocalDateTime updatedAt;
 
     @ManyToOne
     @JoinColumn(name = "category_id")
