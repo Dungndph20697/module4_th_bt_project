@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>Profile</title>
+</head>
+<body>
+<div class="container">
+    <h2>👤 User Profile</h2>
+    <div class="user-info">
+        <h3>Your Information:</h3>
+        <p><strong>Username:</strong> <span th:text="${#authentication.name}">Username</span></p>
+        <p><strong>Roles:</strong>
+            <span sec:authorize="hasRole('ROLE_ADMIN')">Admin </span>
+            <span sec:authorize="hasRole('ROLE_USER')">User </span>
+        </p>
+    </div>
+
+    <div class="nav-links">
+        <a th:href="@{/}">Home</a>
+        <a th:href="@{/user}" sec:authorize="hasRole('ROLE_USER')">User Dashboard</a>
+        <a th:href="@{/admin}" sec:authorize="hasRole('ROLE_ADMIN')">Admin Dashboard</a>
+        <a th:href="@{/logout}">Logout</a>
+    </div>
+</body>
+</html>

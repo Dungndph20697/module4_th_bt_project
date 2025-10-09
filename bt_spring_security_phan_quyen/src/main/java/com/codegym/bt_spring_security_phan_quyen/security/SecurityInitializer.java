@@ -1,0 +1,6 @@
+package com.codegym.bt_spring_security_phan_quyen.security;
+
+import org.springframework.security.web.context.AbstractSecurityWebApplicationInitializer;
+
+public class SecurityInitializer extends AbstractSecurityWebApplicationInitializer {
+}
