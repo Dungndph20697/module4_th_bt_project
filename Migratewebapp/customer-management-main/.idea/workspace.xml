@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="9085ffef-1384-464c-860f-c94a2d563b33" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../../spring-boot-security-jwt-2025/src/main/java/com/codegym/springbootsecurityjwt2025/jwt/CustomAccessDeniedHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spring-boot-security-jwt-2025/src/main/java/com/codegym/springbootsecurityjwt2025/jwt/JwtAuthenticationTokenFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spring-boot-security-jwt-2025/src/main/java/com/codegym/springbootsecurityjwt2025/jwt/RestAuthenticationEntryPoint.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spring-boot-security-jwt-2025/src/main/java/com/codegym/springbootsecurityjwt2025/jwt/service/JwtResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spring-boot-security-jwt-2025/src/main/java/com/codegym/springbootsecurityjwt2025/jwt/service/JwtService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spring-boot-security-jwt-2025/src/main/java/com/codegym/springbootsecurityjwt2025/model/Role.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spring-boot-security-jwt-2025/src/main/java/com/codegym/springbootsecurityjwt2025/model/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spring-boot-security-jwt-2025/src/main/java/com/codegym/springbootsecurityjwt2025/model/UserPrinciple.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spring-boot-security-jwt-2025/src/main/java/com/codegym/springbootsecurityjwt2025/model/dto/UserDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spring-boot-security-jwt-2025/src/main/java/com/codegym/springbootsecurityjwt2025/service/UserService.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 3
+}]]></component>
+  <component name="ProjectId" id="33zY7qxRgkZQPeJVIhMmGgf2wUS" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "C:/Users/Admin/Desktop/codegym/module4/bt_th/Migratewebapp/customer-management-main",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-fbdcb00ec9e3-intellij.indexing.shared.core-IU-251.26927.53" />
+        <option value="bundled-js-predefined-d6986cc7102b-09060db00ec0-JavaScript-IU-251.26927.53" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="9085ffef-1384-464c-860f-c94a2d563b33" name="Changes" comment="" />
+      <created>1760321202818</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1760321202818</updated>
+      <workItem from="1760321203999" duration="150000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
