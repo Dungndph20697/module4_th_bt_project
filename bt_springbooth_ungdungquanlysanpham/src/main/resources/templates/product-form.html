@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Thêm/Sửa sản phẩm</title>
+</head>
+<body>
+<h2 th:text="${product.id == null ? 'Thêm sản phẩm mới' : 'Chỉnh sửa sản phẩm'}"></h2>
+<form th:action="@{/products}" th:object="${product}" method="post">
+  <input type="hidden" th:field="*{id}">
+  <p>Tên: <input type="text" th:field="*{name}" required></p>
+  <p>Giá: <input type="number" th:field="*{price}" required></p>
+  <p>Mô tả: <input type="text" th:field="*{description}"></p>
+  <p>Hãng SX: <input type="text" th:field="*{manufacturer}"></p>
+  <button type="submit">Lưu</button>
+  <a href="/products">Quay lại</a>
+</form>
+</body>
+</html>
