@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Customer List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6f8;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 40px auto;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            padding: 32px 40px 24px 40px;
+        }
+        h1 {
+            color: #2d3a4b;
+            text-align: center;
+            margin-bottom: 24px;
+        }
+        .add-btn {
+            display: inline-block;
+            margin-bottom: 20px;
+            background: #1976d2;
+            color: #fff;
+            padding: 8px 18px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background 0.2s;
+        }
+        .add-btn:hover {
+            background: #125ea2;
+        }
+        .customer-card {
+            background: #f8fafc;
+            border: 1px solid #e0e6ed;
+            border-radius: 7px;
+            padding: 18px 20px;
+            margin-bottom: 18px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .customer-info {
+            font-size: 1.1em;
+            color: #374151;
+        }
+        .view-btn {
+            background: #43a047;
+            color: #fff;
+            padding: 6px 14px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 0.97em;
+            transition: background 0.2s;
+        }
+        .view-btn:hover {
+            background: #2e7031;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Customer List</h1>
+    <a class="add-btn" th:href="@{/customers/create}">+ Add new</a>
+    <div th:each="c : ${customers}">
+        <div class="customer-card">
+            <div class="customer-info">
+                <span th:text="${c.firstName}"></span>
+                <span th:text="${c.lastName}"></span>
+            </div>
+            <a class="view-btn" th:href="@{/customers/__${c.id}__}">View</a>
+        </div>
+    </div>
+</div>
+</body>
+</html>
